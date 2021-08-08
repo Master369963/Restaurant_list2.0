@@ -1,0 +1,22 @@
+<!-- search bar -->
+<div class="container search-bar">
+  <div class="search-bar-outer">
+    <div class="search-bar-inner">
+      <form action="/search">
+        <h4 class="mb-2">尋找餐廳：</h4>
+        <div class="input-group">
+          <input type="text" name="keyword" class="form-control" placeholder="輸入餐廳、分類" aria-label="Restaurant Name..."
+            value={{keyword}}>
+          <div class="input-group-append">
+            <button class="btn btn-major" type="submit" id="search-button"><i class="fas fa-search"></i></button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+<div class="container mt-5">
+  <div class="row col-md-10 col-12 mx-auto justify-content-center">
+    <h5>您輸入的關鍵字: <span class="fw-bold text-decoration-underline">{{keyword}}</span> ，沒有符合條件的餐廳</h5>
+  </div>
+</div>
