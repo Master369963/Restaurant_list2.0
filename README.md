@@ -29,11 +29,25 @@ npm install
 ```
 
 * Executing program 
+
+There are 2 way to execute this progarm: 
+1. If you'd like to run in the **development mode**, you need to install nodemon in your terminal first.
+```
+npm install -g nodemon
+```
+Then use the follwing code to excute
 ```
 npm rum dev
 ```
-You will see this massage "Express is listening on localhost:3000" in the terminal once executed successfully.
-Go to http://localhost:3000 in your browser to see this Restaurant List. 
+
+2. If you'd like to run in the **prodction mode**, directly use command line below to execute the program
+```
+npm run start 
+```
+
+* Execute Successfully 
+
+  This message "Express is listening on localhost:3000" will be shown in the terminal and then go to http://localhost:3000 in your browser to see this Restaurant List. 
 
 ### Tools
 
@@ -46,7 +60,7 @@ Go to http://localhost:3000 in your browser to see this Restaurant List.
 * [Express-Handlebars](https://www.npmjs.com/package/express-handlebars) - Template Engine
 
 ## Screen photo
-![image](https://github.com/Master369963/Restaurant_list/blob/main/public/image/homepage.jpg)
+![image](https://github.com/Master369963/Restaurant_list/blob/39f4add73ec30bd69d33ef7e863a1953eacdef1c/public/image/homepage.jpg)
 
 
 ## Version History
