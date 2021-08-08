@@ -31,16 +31,16 @@ npm install
 * Executing program 
 
 There are 2 way to execute this progarm: 
-1. If you'd like to run in the **development mode**, you need to install nodemon in your terminal first.
+>1. If you'd like to run in the **development mode**, you need to install nodemon in your terminal first.
 ```
 npm install -g nodemon
 ```
-Then use the follwing code to excute
+>>Then use the follwing code to excute
 ```
 npm rum dev
 ```
 
-2. If you'd like to run in the **prodction mode**, directly use command line below to execute the program
+>2. If you'd like to run in the **prodction mode**, directly use command line below to execute the program
 ```
 npm run start 
 ```
@@ -60,7 +60,7 @@ npm run start
 * [Express-Handlebars](https://www.npmjs.com/package/express-handlebars) - Template Engine
 
 ## Screen photo
-![image](https://github.com/Master369963/Restaurant_list/blob/39f4add73ec30bd69d33ef7e863a1953eacdef1c/public/image/homepage.jpg)
+![image](https://github.com/Master369963/Restaurant_list/blob/main/public/image/homepage.jpg)
 
 
 ## Version History
