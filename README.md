@@ -46,7 +46,7 @@ Go to http://localhost:3000 in your browser to see this Restaurant List.
 * [Express-Handlebars](https://www.npmjs.com/package/express-handlebars) - Template Engine
 
 ## Screen photo
-![image](https://github.com/Master369963/Restaurant_list/blob/39f4add73ec30bd69d33ef7e863a1953eacdef1c/public/image/homepage.jpg)
+![image](https://github.com/Master369963/Restaurant_list/blob/main/public/image/homepage.jpg)
 
 
 ## Version History
