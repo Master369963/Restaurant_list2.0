@@ -23,11 +23,7 @@ app.get('/search', (req, res) => {
     return restaurant.name.toLowerCase().includes(keyword) || restaurant.category.toLowerCase().includes(keyword)
   })
 
-  if(restaurants.length === 0 ) {
-    res.render('searchEmpty', { keyword: keyword })
-  } else {
-    res.render('index', { restaurants, keyword })
-  }
+  res.render('index', { restaurants, keyword })
 })
 
 app.listen(port, () => {

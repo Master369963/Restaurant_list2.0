@@ -16,6 +16,7 @@
   </div>
 </div>
 
+{{#if restaurants}}
 <!-- restaurant list -->
 <div class="container mt-5">
   <div class="row">
@@ -46,3 +47,11 @@
     </div>
   </div>
 </div>
+{{else}}
+{{!-- 當搜尋不到符合項目，顯示提醒 --}}
+<div class="container mt-5">
+  <div class="row col-md-10 col-12 mx-auto justify-content-center">
+    <h5>您輸入的關鍵字: <span class="fw-bold text-decoration-underline">{{keyword}}</span> ，沒有符合條件的餐廳</h5>
+  </div>
+</div>
+{{/if}}
