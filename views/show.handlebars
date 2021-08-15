@@ -1,8 +1,17 @@
 <h1 class="mb-1 restaurant-show-title">{{ restaurant.name }}</h1>
 <div class="container">
   <div class="row">
-    <div class="col-12 col-md-10 mx-auto">
+    
+      <div class="col-md-10 mx-auto mb-3 justify-content-end">
+        <a href="/restaurants/{{ restaurant._id }}/edit" class="btn btn-primary">Edit</a>
+      <form action="/restaurants/{{ restaurant._id }}/delete" method="POST" style="display:inline;">
+        <button type="submit" class="btn btn-danger fas fa-trash-alt align-text-center"></button>
+      </form>
+      </div>
+    
 
+
+    <div class="col-12 col-md-10 mx-auto">
       <p class="mb-1">
         <span class="text-secondary">
           <i class="fas fa-utensils pr-2"></i>
@@ -38,5 +47,8 @@
         src="{{ restaurant.image }}" alt="{{restaurant.name}}"
         style="max-width: 600px;">
     </div>
+    
+    
+    
   </div>
 </div>
