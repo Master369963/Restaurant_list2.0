@@ -6,7 +6,7 @@
         <h4 class="mb-2">尋找餐廳：</h4>
         <div class="input-group">
           <input type="text" name="keyword" class="form-control" placeholder="輸入餐廳、分類" aria-label="Restaurant Name..."
-            value={{keyword}}>
+            value={{ keyword }}>
           <div class="input-group-append">
             <button class="btn btn-major" type="submit" id="search-button"><i class="fas fa-search"></i></button>
           </div>
@@ -16,25 +16,25 @@
   </div>
 </div>
 
-{{#if restaurants}}
+{{#if restaurants }}
 <!-- restaurant list -->
 <div class="container mt-5">
   <div class="row">
     <div class="col-md-10 col-12 mx-auto">
       <div class="card-columns">
       
-        {{#each restaurants}}
-          <a href="./restaurants/{{this._id}}" class="text-secondary">
+        {{#each restaurants }}
+          <a href="./restaurants/{{ this._id }}" class="text-secondary">
             <div class="card mb-3">
-              <img class="card-img-top" src="{{this.image}}"
-                alt="{{this.name}}">
+              <img class="card-img-top" src="{{ this.image }}"
+                alt="{{ this.name }}">
               <div class="card-body p-3">
-                  <h6 class="card-title mb-1">{{this.name}}</h6>
+                  <h6 class="card-title mb-1">{{ this.name }}</h6>
                 <div class="restaurant-category mb-1">
-                  <i class="fas fa-utensils pr-2"></i> {{this.category}}
+                  <i class="fas fa-utensils pr-2"></i> {{ this.category }}
                 </div>
                 <span class="badge badge-pill badge-danger font-weight-normal">
-                  {{this.rating}}
+                  {{ this.rating }}
                   <i class="fas fa-star fa-xs"></i>
                 </span>
           
@@ -59,7 +59,7 @@
 {{!-- 當搜尋不到符合項目，顯示提醒 --}}
 <div class="container mt-5">
   <div class="row col-md-10 col-12 mx-auto justify-content-center">
-    <h5>您輸入的關鍵字: <span class="fw-bold text-decoration-underline">{{keyword}}</span> ，沒有符合條件的餐廳</h5>
+    <h5>您輸入的關鍵字: <span class="fw-bold text-decoration-underline">{{ keyword }}</span> ，沒有符合條件的餐廳</h5>
   </div>
 </div>
 {{/if}}
