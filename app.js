@@ -98,23 +98,19 @@ app.post('/restaurants', (req, res) => {
 })
 
 
-// app.get('/search', (req, res) => {
-//   const keyword = req.query.keyword.toLowerCase()
-
-//   const filteredRestaurants = new restaurant({ }
-
-//   Restaurant.find()
-//     .lean()
-//     .then(restaurants => {
-//       const filteredRestaurants = 
-//       restaurants.filter((restaurant) => restaurant.name.toLowerCase().includes(keyword) || 
-//       restaurant.category.toLowerCase().includes(keyword))
-//     })
-//       res.render('index', { restaurants: filteredRestaurants, keyword })
-//     .catch(error => console.error(error))
-  
-// })
-
+app.get('/search', (req, res) => {
+  const keyword = req.query.keyword
+  Restaurant.find({
+    $or: [
+      { name: { $regex: new RegExp(keyword, 'i') } },
+      { category: { $regex: new RegExp(keyword, 'i') } },
+    ]
+  })
+    .lean()
+    .then(restaurants => {    
+    res.render('index', { restaurants, keyword })
+  })
+})
 
 app.listen(port, () => {
   console.log(`Express is listening on localhost:${port}`)

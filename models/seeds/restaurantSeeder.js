@@ -1,6 +1,6 @@
 const mongoose = require('mongoose')
 const Restaurant = require('../restaurant')
-const RestaurantList = require('../../restaurants.json').results
+const RestaurantList = require('../../restaurants.json')
 mongoose.connect('mongodb://localhost/restaurant-list', { useNewUrlParser: true, useUnifiedTopology: true })
 
 const db = mongoose.connection
@@ -20,6 +20,6 @@ db.once('open', () => {
       description: restaurant.description,
       google_map: restaurant.google_map
     })
-    console.log('data added!')
   })
+  console.log('data added!')
 })
