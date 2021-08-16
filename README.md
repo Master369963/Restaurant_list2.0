@@ -1,14 +1,22 @@
 # Restaurant List
 
-This a list of restaurants with related-information.
+This a list of restaurants with related-information and you can edit, remove, create and check the restaurants.
 
 ## Features
 
 * In the homepage, you can see the restaurants with their basic information, inculdes photo, name, category, rating.
 
-* Click each restaurant to see more information includes, address, phone and description.
+* Edit the information of restaurant by clicking Edit button.
 
-* Search restaurants by names or categories in the search bar.
+* Delete restaurants from this list by clicking Edit button.
+
+* Click "Detail" button to see more information includes, address, phone and description.
+
+* Edit or delete the restaurants in the detail page.
+
+* Click 'Create New' in the upper right corner to add new restaurants to the list.
+
+* Search restaurants by names or categories in the search bar. If there is no-matched item, it will show the error message.
 
 * Click webpage name in the upper left corner to go back to the homepage. 
 
@@ -60,10 +68,6 @@ npm run start
 * [Express-Handlebars](https://www.npmjs.com/package/express-handlebars) - Template Engine
 
 ## Screen photo
-![image](https://github.com/Master369963/Restaurant_list/blob/main/public/image/homepage.jpg)
+![image](https://github.com/Master369963/Restaurant_list2.0/blob/main/public/image/homepage.jpg)
 
-
-## Version History
-
-* 0.1: Initial Release
 

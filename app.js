@@ -21,13 +21,31 @@ db.once('open', () => {
 app.engine('handlebars', exphbs({ defultLayout: 'main' }))
 app.set('view engine', 'handlebars')
 app.use(express.static('public'))
-app.use(bodyParser.urlencoded({ extended: true}))
+app.use(bodyParser.urlencoded({ extended: true }))
 
 app.get('/', (req, res) => {
   Restaurant.find()
     .lean()
     .then(restaurants => res.render('index', { restaurants }))
     .catch(error => console.error(error))
+})
+
+app.get('/restaurants/new', (req, res) => {
+  res.render('new')
+})
+
+app.post('/restaurants', (req, res) => {
+  const name = req.body.name
+  const category = req.body.category
+  const image = req.body.image
+  const location = req.body.location
+  const phone = req.body.phone
+  const rating = req.body.rating
+  const description = req.body.description
+  const google_map = req.body.google_map
+  return Restaurant.create({ name, category, image, location, phone, rating, description, google_map })
+    .then(() => res.redirect('/'))
+    .catch(error => console.log(error))
 })
 
 app.get('/restaurants/:id', (req, res) => {
@@ -37,7 +55,8 @@ app.get('/restaurants/:id', (req, res) => {
     .then((restaurant) => res.render('show', { restaurant }))
     .catch(error => console.log(error))
 })
-app.get('/restaurants/:id/edit', (req,res) => {
+
+app.get('/restaurants/:id/edit', (req, res) => {
   const id = req.params.id
   return Restaurant.findById(id)
     .lean()
@@ -79,25 +98,6 @@ app.post('/restaurants/:id/delete', (req, res) => {
     .catch(error => console.log(error))
 })
 
-app.get('/restaurants/new', (req, res) => {
-  return res.render('new')
-})
-
-app.post('/restaurants', (req, res) => {
-  const name = req.body.name
-  const category = req.body.category
-  const image = req.body.image
-  const location = req.body.location
-  const phone = req.body.phone
-  const rating = req.body.rating
-  const description = req.body.description
-  const google_map = req.body.google_map
-  return Restaurant.create({ name, category, image, location, phone, rating, description, google_map })
-    .then(() => res.redirect('/'))
-    .catch(error => console.log(error))
-})
-
-
 app.get('/search', (req, res) => {
   const keyword = req.query.keyword
   Restaurant.find({
@@ -107,9 +107,9 @@ app.get('/search', (req, res) => {
     ]
   })
     .lean()
-    .then(restaurants => {    
-    res.render('index', { restaurants, keyword })
-  })
+    .then(restaurants => {
+      res.render('index', { restaurants, keyword })
+    })
 })
 
 app.listen(port, () => {

@@ -16,8 +16,6 @@
   </div>
 </div>
 
-
-
 {{#if restaurants}}
 <!-- restaurant list -->
 <div class="container mt-5">
@@ -45,7 +43,7 @@
                     <a href="./restaurants/{{ this._id }}/edit" class="btn btn-primary">Edit</a>
                     <a href="./restaurants/{{ this._id }}" class="btn btn-primary">Detail</a>
                     <form action="./restaurants/{{ this._id }}/delete" method="POST" style="display:inline;">
-                      <button type="submit" class="btn btn-danger fas fa-trash-alt align-text-center"></button>
+                      <button type="submit" class="btn btn-danger fas fa-trash-alt align-self-center" style="height:100%"></button>
                     </form>
                   </div>
                 </div>
