@@ -99,3 +99,8 @@ header {
   }
   
 }
+
+/* .form-control.required .control-label:after { 
+   content:"*";
+   color:red;
+} */

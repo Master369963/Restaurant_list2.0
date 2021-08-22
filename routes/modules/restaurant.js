@@ -7,17 +7,40 @@ router.get('/new', (req, res) => {
 })
 
 router.post('/', (req, res) => {
-  const name = req.body.name
-  const category = req.body.category
-  const image = req.body.image
-  const location = req.body.location
-  const phone = req.body.phone
-  const rating = req.body.rating
-  const description = req.body.description
-  const google_map = req.body.google_map
+  const {name, category, image, location, phone, rating, description, google_map } = req.body
   return Restaurant.create({ name, category, image, location, phone, rating, description, google_map })
     .then(() => res.redirect('/'))
     .catch(error => console.log(error))
+})
+
+router.get('/AtoZ', (req, res) => {
+  Restaurant.find()
+    .lean()
+    .sort({ name: 'asc' })
+    .then(restaurants => res.render('index', { restaurants }))
+    .catch(error => console.error(error))
+})
+
+router.get('/ZtoA', (req, res) => {
+  Restaurant.find()
+    .lean()
+    .sort({ name: 'desc' })
+    .then(restaurants => res.render('index', { restaurants }))
+    .catch(error => console.error(error))
+})
+router.get('/category', (req, res) => {
+  Restaurant.find()
+    .lean()
+    .sort({ category: 'asc' })
+    .then(restaurants => res.render('index', { restaurants }))
+    .catch(error => console.error(error))
+})
+router.get('/location', (req, res) => {
+  Restaurant.find()
+    .lean()
+    .sort({ location: 'asc' })
+    .then(restaurants => res.render('index', { restaurants }))
+    .catch(error => console.error(error))
 })
 
 router.get('/:id', (req, res) => {
@@ -37,15 +60,8 @@ router.get('/:id/edit', (req, res) => {
 })
 
 router.put('/:id', (req, res) => {
+  const {name, category, image, location, phone, rating, description, google_map } = req.body
   const id = req.params.id
-  const name = req.body.name
-  const category = req.body.category
-  const image = req.body.image
-  const location = req.body.location
-  const phone = req.body.phone
-  const rating = req.body.rating
-  const description = req.body.description
-  const google_map = req.body.google_map
   return Restaurant.findById(id)
     .then(restaurant => {
       restaurant.name = name
@@ -68,5 +84,7 @@ router.delete('/:id', (req, res) => {
     .then(() => res.redirect('/'))
     .catch(error => console.log(error))
 })
+
+
 
 module.exports = router

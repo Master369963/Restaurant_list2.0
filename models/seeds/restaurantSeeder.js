@@ -2,7 +2,6 @@ const Restaurant = require('../restaurant')
 
 const db = ('../../config/mongoose')
 
-
 db.once('open', () => {
   RestaurantList.results.forEach(restaurant => {
     Restaurant.create({
