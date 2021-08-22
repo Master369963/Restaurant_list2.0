@@ -2,7 +2,7 @@ const express = require('express')
 const router = express.Router()
 const Restaurant = require('../../models/restaurant')
 
-router.get('new', (req, res) => {
+router.get('/new', (req, res) => {
   return res.render('new')
 })
 
@@ -67,20 +67,6 @@ router.delete('/:id', (req, res) => {
   return Restaurant.findByIdAndDelete(id)
     .then(() => res.redirect('/'))
     .catch(error => console.log(error))
-})
-
-router.get('/search', (req, res) => {
-  const keyword = req.query.keyword
-  Restaurant.find({
-    $or: [
-      { name: { $regex: new RegExp(keyword, 'i') } },
-      { category: { $regex: new RegExp(keyword, 'i') } },
-    ]
-  })
-    .lean()
-    .then(restaurants => {
-      res.render('index', { restaurants, keyword })
-    })
 })
 
 module.exports = router
